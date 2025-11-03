@@ -562,11 +562,11 @@ def run_app() -> None:
         [data-testid="stMetricValue"] {
             font-size: 1.8rem;
             font-weight: 700;
-            color: #ffffff;
+            color: #1e3a8a;
         }
 
         [data-testid="stMetricLabel"] {
-            color: #ffffff;
+            color: #475569;
             font-weight: 500;
         }
 
