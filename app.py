@@ -782,6 +782,17 @@ def run_app() -> None:
         .main .block-container p {
             color: inherit;
         }
+
+        /* All text on blue gradient backgrounds should be white */
+        div[style*="background: linear-gradient(135deg, #1e3a8a"],
+        div[style*="background: linear-gradient(135deg, #0c4a6e"] {
+            color: #ffffff !important;
+        }
+
+        div[style*="background: linear-gradient(135deg, #1e3a8a"] *,
+        div[style*="background: linear-gradient(135deg, #0c4a6e"] * {
+            color: #ffffff !important;
+        }
         </style>
     """, unsafe_allow_html=True)
 
