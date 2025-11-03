@@ -637,7 +637,7 @@ def run_app() -> None:
         /* Drag and drop instruction text - black */
         [data-testid="stFileUploader"] p,
         [data-testid="stFileUploader"] small {
-            color: #1e293b !important;
+            color: #000000 !important;
         }
 
         /* Uploaded file name - white */
@@ -647,7 +647,7 @@ def run_app() -> None:
 
         /* File uploader button text */
         [data-testid="stFileUploader"] button {
-            color: #1e293b !important;
+            color: #000000 !important;
         }
 
         /* Expander styling */
