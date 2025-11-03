@@ -2,7 +2,6 @@
 import os
 import re
 import random
-import html
 from dataclasses import dataclass
 from typing import List, Sequence, Tuple
 
@@ -226,17 +225,16 @@ def summarize_document(document_text: str) -> str | None:
 def display_summary(summary: str) -> None:
     """Render the generated summary and offer a download option."""
     st.markdown("### 📊 Executive Summary")
-    # Escape HTML and preserve newlines
-    escaped_summary = html.escape(summary).replace('\n', '<br>')
     st.markdown(f"""
-        <div style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+        <div style="background: linear-gradient(135deg, #0c4a6e 0%, #075985 100%);
                     padding: 1.5rem;
                     border-radius: 10px;
-                    border-left: 4px solid #3b82f6;
+                    border-left: 4px solid #06b6d4;
                     margin: 1rem 0;
+                    color: #ffffff;
                     line-height: 1.8;
                     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-            <div style="color: #1e3a8a; margin: 0; line-height: 1.8; font-size: 1rem;">{escaped_summary}</div>
+            {summary}
         </div>
     """, unsafe_allow_html=True)
     st.download_button(
@@ -614,51 +612,28 @@ def run_app() -> None:
 
         /* File uploader - Blue gradient theme */
         [data-testid="stFileUploader"] {
-            background: linear-gradient(135deg, #1e3a8a 0%, #0891b2 100%) !important;
-            border: 2px dashed #60a5fa !important;
-            border-radius: 10px !important;
-            padding: 1.5rem !important;
-            transition: all 0.3s ease !important;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+            background: linear-gradient(135deg, #1e3a8a 0%, #0891b2 100%);
+            border: 2px dashed #60a5fa;
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         [data-testid="stFileUploader"]:hover {
-            border-color: #93c5fd !important;
-            background: linear-gradient(135deg, #1e40af 0%, #0891b2 100%) !important;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2) !important;
+            border-color: #93c5fd;
+            background: linear-gradient(135deg, #1e40af 0%, #0891b2 100%);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
 
-        /* File uploader - ALL TEXT WHITE - Aggressive approach */
-        [data-testid="stFileUploader"] *,
-        [data-testid="stFileUploader"] label,
+        [data-testid="stFileUploader"] label {
+            color: #ffffff !important;
+            font-weight: 600;
+        }
+
         [data-testid="stFileUploader"] p,
-        [data-testid="stFileUploader"] small,
-        [data-testid="stFileUploader"] div,
-        [data-testid="stFileUploader"] section,
-        [data-testid="stFileUploader"] span,
-        section[data-testid="stFileUploader"] *,
-        section[data-testid="stFileUploader"] p,
-        section[data-testid="stFileUploader"] small {
-            color: #ffffff !important;
-        }
-
-        /* File uploader button - WHITE text with visible background */
-        [data-testid="stFileUploader"] button,
-        [data-testid="stFileUploader"] button *,
-        [data-testid="stFileUploader"] button span,
-        [data-testid="stFileUploader"] button p,
-        section[data-testid="stFileUploader"] button {
-            color: #ffffff !important;
-            background-color: rgba(255, 255, 255, 0.15) !important;
-            border: 1px solid rgba(255, 255, 255, 0.4) !important;
-            padding: 0.5rem 1rem !important;
-            border-radius: 6px !important;
-            font-weight: 500 !important;
-        }
-        
-        [data-testid="stFileUploader"] button:hover {
-            background-color: rgba(255, 255, 255, 0.25) !important;
-            border-color: rgba(255, 255, 255, 0.6) !important;
+        [data-testid="stFileUploader"] small {
+            color: #e0f2fe !important;
         }
 
         /* Expander styling */
@@ -802,52 +777,6 @@ def run_app() -> None:
         .main .block-container {
             color: #1e293b;
         }
-
-        /* Force white text in answer boxes with blue backgrounds */
-        div[style*="background: linear-gradient(135deg, #1e3a8a"],
-        div[style*="background: linear-gradient(135deg, #0c4a6e"],
-        div[style*="background: linear-gradient(135deg, #1e40af"],
-        div[style*="background: linear-gradient(135deg, #075985"] {
-            color: #ffffff !important;
-        }
-
-        div[style*="background: linear-gradient(135deg, #1e3a8a"] *,
-        div[style*="background: linear-gradient(135deg, #0c4a6e"] *,
-        div[style*="background: linear-gradient(135deg, #1e40af"] *,
-        div[style*="background: linear-gradient(135deg, #075985"] * {
-            color: #ffffff !important;
-        }
-
-        /* Force white text in blue gradient answer boxes - ALL ELEMENTS */
-        div[style*="background: linear-gradient(135deg, #1e3a8a"],
-        div[style*="background: linear-gradient(135deg, #0c4a6e"],
-        div[style*="background: linear-gradient(135deg, #1e40af"],
-        div[style*="background: linear-gradient(135deg, #075985"] {
-            color: #ffffff !important;
-        }
-
-        div[style*="background: linear-gradient(135deg, #1e3a8a"] *,
-        div[style*="background: linear-gradient(135deg, #0c4a6e"] *,
-        div[style*="background: linear-gradient(135deg, #1e40af"] *,
-        div[style*="background: linear-gradient(135deg, #075985"] * {
-            color: #ffffff !important;
-        }
-
-        div[style*="background: linear-gradient(135deg, #1e3a8a"] p,
-        div[style*="background: linear-gradient(135deg, #0c4a6e"] p,
-        div[style*="background: linear-gradient(135deg, #1e40af"] p,
-        div[style*="background: linear-gradient(135deg, #075985"] p,
-        div[style*="background: linear-gradient(135deg, #1e3a8a"] strong,
-        div[style*="background: linear-gradient(135deg, #0c4a6e"] strong,
-        div[style*="background: linear-gradient(135deg, #1e40af"] strong,
-        div[style*="background: linear-gradient(135deg, #075985"] strong,
-        div[style*="background: linear-gradient(135deg, #1e3a8a"] div,
-        div[style*="background: linear-gradient(135deg, #0c4a6e"] div,
-        div[style*="background: linear-gradient(135deg, #1e40af"] div,
-        div[style*="background: linear-gradient(135deg, #075985"] div {
-            color: #ffffff !important;
-        }
-
         </style>
     """, unsafe_allow_html=True)
 
@@ -1068,17 +997,15 @@ def run_app() -> None:
                 "rag": "✅ Context-Aware RAG Answer",
             }.get(result["strategy"], "Answer")
 
-            # Escape HTML and preserve newlines
-            escaped_answer = html.escape(result['answer']).replace('\n', '<br>')
             st.markdown(f"""
-                <div style="background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+                <div style="background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
                             padding: 1.5rem;
                             border-radius: 10px;
-                            border-left: 4px solid #0891b2;
+                            border-left: 4px solid #60a5fa;
                             margin: 1rem 0;
                             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-                    <div style="color: #0c4a6e; font-size: 1.1rem; font-weight: bold; margin-bottom: 0.8rem;">🤖 ConcallIQ — {strategy_label}</div>
-                    <div style="color: #0f172a; margin-top: 0.8rem; line-height: 1.8; font-size: 1rem;">{escaped_answer}</div>
+                    <strong style="color: #ffffff; font-size: 1.1rem;">🤖 ConcallIQ — {strategy_label}</strong>
+                    <p style="color: #e0e7ff; margin-top: 0.8rem; line-height: 1.8; font-size: 1rem;">{result['answer']}</p>
                 </div>
             """, unsafe_allow_html=True)
 
