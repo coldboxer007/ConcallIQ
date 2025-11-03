@@ -777,6 +777,16 @@ def run_app() -> None:
         .main .block-container {
             color: #1e293b;
         }
+
+        /* Answer box - force all text to white */
+        .stMarkdown p span,
+        .stMarkdown p strong,
+        .stMarkdown p em,
+        .stMarkdown p b,
+        .stMarkdown p i,
+        .stMarkdown p code {
+            color: inherit !important;
+        }
         </style>
     """, unsafe_allow_html=True)
 
@@ -1003,9 +1013,12 @@ def run_app() -> None:
                             border-radius: 10px;
                             border-left: 4px solid #60a5fa;
                             margin: 1rem 0;
-                            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                            color: #ffffff;">
                     <strong style="color: #ffffff; font-size: 1.1rem;">🤖 ConcallIQ — {strategy_label}</strong>
-                    <p style="color: #ffffff; margin-top: 0.8rem; line-height: 1.8; font-size: 1rem;">{result['answer']}</p>
+                    <p style="color: #ffffff; margin-top: 0.8rem; line-height: 1.8; font-size: 1rem;">
+                        <span style="color: #ffffff !important;">{result['answer']}</span>
+                    </p>
                 </div>
             """, unsafe_allow_html=True)
 
