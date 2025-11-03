@@ -614,55 +614,51 @@ def run_app() -> None:
 
         /* File uploader - Blue gradient theme */
         [data-testid="stFileUploader"] {
-            background: linear-gradient(135deg, #1e3a8a 0%, #0891b2 100%);
-            border: 2px dashed #60a5fa;
-            border-radius: 10px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #1e3a8a 0%, #0891b2 100%) !important;
+            border: 2px dashed #60a5fa !important;
+            border-radius: 10px !important;
+            padding: 1.5rem !important;
+            transition: all 0.3s ease !important;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
         }
 
         [data-testid="stFileUploader"]:hover {
-            border-color: #93c5fd;
-            background: linear-gradient(135deg, #1e40af 0%, #0891b2 100%);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            border-color: #93c5fd !important;
+            background: linear-gradient(135deg, #1e40af 0%, #0891b2 100%) !important;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2) !important;
         }
 
-        /* File uploader label - white */
-        [data-testid="stFileUploader"] label {
-            color: #ffffff !important;
-            font-weight: 600;
-        }
-
-        /* Drag and drop instruction text - WHITE for consistency with blue background theme */
+        /* File uploader - ALL TEXT WHITE - Aggressive approach */
+        [data-testid="stFileUploader"] *,
+        [data-testid="stFileUploader"] label,
         [data-testid="stFileUploader"] p,
         [data-testid="stFileUploader"] small,
-        [data-testid="stFileUploader"] div p,
-        [data-testid="stFileUploader"] div small,
-        [data-testid="stFileUploader"] section p,
-        [data-testid="stFileUploader"] section small {
-            color: #ffffff !important;
-            font-weight: 500 !important;
-        }
-
-        /* Uploaded file name - white */
-        [data-testid="stFileUploader"] span {
+        [data-testid="stFileUploader"] div,
+        [data-testid="stFileUploader"] section,
+        [data-testid="stFileUploader"] span,
+        section[data-testid="stFileUploader"] *,
+        section[data-testid="stFileUploader"] p,
+        section[data-testid="stFileUploader"] small {
             color: #ffffff !important;
         }
 
-        /* File uploader button text - WHITE with higher specificity */
+        /* File uploader button - WHITE text with visible background */
         [data-testid="stFileUploader"] button,
+        [data-testid="stFileUploader"] button *,
         [data-testid="stFileUploader"] button span,
-        [data-testid="stFileUploader"] button p {
+        [data-testid="stFileUploader"] button p,
+        section[data-testid="stFileUploader"] button {
             color: #ffffff !important;
-            background-color: rgba(255, 255, 255, 0.1) !important;
-            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            background-color: rgba(255, 255, 255, 0.15) !important;
+            border: 1px solid rgba(255, 255, 255, 0.4) !important;
             padding: 0.5rem 1rem !important;
             border-radius: 6px !important;
+            font-weight: 500 !important;
         }
         
         [data-testid="stFileUploader"] button:hover {
-            background-color: rgba(255, 255, 255, 0.2) !important;
+            background-color: rgba(255, 255, 255, 0.25) !important;
+            border-color: rgba(255, 255, 255, 0.6) !important;
         }
 
         /* Expander styling */
