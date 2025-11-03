@@ -2,6 +2,7 @@
 import os
 import re
 import random
+import html
 from dataclasses import dataclass
 from typing import List, Sequence, Tuple
 
@@ -225,16 +226,17 @@ def summarize_document(document_text: str) -> str | None:
 def display_summary(summary: str) -> None:
     """Render the generated summary and offer a download option."""
     st.markdown("### 📊 Executive Summary")
+    # Escape HTML and preserve newlines
+    escaped_summary = html.escape(summary).replace('\n', '<br>')
     st.markdown(f"""
         <div style="background: linear-gradient(135deg, #0c4a6e 0%, #075985 100%);
                     padding: 1.5rem;
                     border-radius: 10px;
                     border-left: 4px solid #06b6d4;
                     margin: 1rem 0;
-                    color: #ffffff !important;
                     line-height: 1.8;
                     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-            {summary}
+            <div style="color: #ffffff !important; margin: 0; line-height: 1.8; font-size: 1rem;">{escaped_summary}</div>
         </div>
     """, unsafe_allow_html=True)
     st.download_button(
@@ -1036,6 +1038,8 @@ def run_app() -> None:
                 "rag": "✅ Context-Aware RAG Answer",
             }.get(result["strategy"], "Answer")
 
+            # Escape HTML and preserve newlines
+            escaped_answer = html.escape(result['answer']).replace('\n', '<br>')
             st.markdown(f"""
                 <div style="background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
                             padding: 1.5rem;
@@ -1043,8 +1047,8 @@ def run_app() -> None:
                             border-left: 4px solid #60a5fa;
                             margin: 1rem 0;
                             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-                    <strong style="color: #ffffff !important; font-size: 1.1rem;">🤖 ConcallIQ — {strategy_label}</strong>
-                    <p style="color: #ffffff !important; margin-top: 0.8rem; line-height: 1.8; font-size: 1rem;">{result['answer']}</p>
+                    <strong style="color: #ffffff !important; font-size: 1.1rem;">🤖 ConcallIQ — {html.escape(strategy_label)}</strong>
+                    <div style="color: #ffffff !important; margin-top: 0.8rem; line-height: 1.8; font-size: 1rem;">{escaped_answer}</div>
                 </div>
             """, unsafe_allow_html=True)
 
