@@ -229,14 +229,14 @@ def display_summary(summary: str) -> None:
     # Escape HTML and preserve newlines
     escaped_summary = html.escape(summary).replace('\n', '<br>')
     st.markdown(f"""
-        <div style="background: linear-gradient(135deg, #0c4a6e 0%, #075985 100%);
+        <div style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
                     padding: 1.5rem;
                     border-radius: 10px;
-                    border-left: 4px solid #06b6d4;
+                    border-left: 4px solid #3b82f6;
                     margin: 1rem 0;
                     line-height: 1.8;
                     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-            <div style="color: #ffffff !important; margin: 0; line-height: 1.8; font-size: 1rem;">{escaped_summary}</div>
+            <div style="color: #1e3a8a; margin: 0; line-height: 1.8; font-size: 1rem;">{escaped_summary}</div>
         </div>
     """, unsafe_allow_html=True)
     st.download_button(
@@ -1071,14 +1071,14 @@ def run_app() -> None:
             # Escape HTML and preserve newlines
             escaped_answer = html.escape(result['answer']).replace('\n', '<br>')
             st.markdown(f"""
-                <div style="background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+                <div style="background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
                             padding: 1.5rem;
                             border-radius: 10px;
-                            border-left: 4px solid #60a5fa;
+                            border-left: 4px solid #0891b2;
                             margin: 1rem 0;
                             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-                    <div style="font-size: 1.1rem; font-weight: bold; margin-bottom: 0.8rem;">🤖 ConcallIQ — {strategy_label}</div>
-                    <div style="margin-top: 0.8rem; line-height: 1.8; font-size: 1rem;">{escaped_answer}</div>
+                    <div style="color: #0c4a6e; font-size: 1.1rem; font-weight: bold; margin-bottom: 0.8rem;">🤖 ConcallIQ — {strategy_label}</div>
+                    <div style="color: #0f172a; margin-top: 0.8rem; line-height: 1.8; font-size: 1rem;">{escaped_answer}</div>
                 </div>
             """, unsafe_allow_html=True)
 
