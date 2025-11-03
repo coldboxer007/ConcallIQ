@@ -777,6 +777,11 @@ def run_app() -> None:
         .main .block-container {
             color: #1e293b;
         }
+
+        /* Answer box text override */
+        .main .block-container p {
+            color: inherit;
+        }
         </style>
     """, unsafe_allow_html=True)
 
@@ -1004,8 +1009,8 @@ def run_app() -> None:
                             border-left: 4px solid #60a5fa;
                             margin: 1rem 0;
                             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-                    <strong style="color: #ffffff; font-size: 1.1rem;">🤖 ConcallIQ — {strategy_label}</strong>
-                    <p style="color: #ffffff; margin-top: 0.8rem; line-height: 1.8; font-size: 1rem;">{result['answer']}</p>
+                    <strong style="color: #ffffff !important; font-size: 1.1rem;">🤖 ConcallIQ — {strategy_label}</strong>
+                    <p style="color: #ffffff !important; margin-top: 0.8rem; line-height: 1.8; font-size: 1rem;">{result['answer']}</p>
                 </div>
             """, unsafe_allow_html=True)
 
