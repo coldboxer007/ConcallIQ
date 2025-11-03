@@ -231,7 +231,7 @@ def display_summary(summary: str) -> None:
                     border-radius: 10px;
                     border-left: 4px solid #06b6d4;
                     margin: 1rem 0;
-                    color: #ffffff;
+                    color: #ffffff !important;
                     line-height: 1.8;
                     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
             {summary}
@@ -633,7 +633,13 @@ def run_app() -> None:
 
         [data-testid="stFileUploader"] p,
         [data-testid="stFileUploader"] small {
-            color: #e0f2fe !important;
+            color: #ffffff !important;
+        }
+
+        /* Uploaded file name should be white */
+        [data-testid="stFileUploader"] span,
+        [data-testid="stFileUploader"] div {
+            color: #ffffff !important;
         }
 
         /* Expander styling */
@@ -778,21 +784,19 @@ def run_app() -> None:
             color: #1e293b;
         }
 
-        /* Answer box text override */
-        .main .block-container p {
-            color: inherit;
-        }
-
-        /* All text on blue gradient backgrounds should be white */
-        div[style*="background: linear-gradient(135deg, #1e3a8a"],
-        div[style*="background: linear-gradient(135deg, #0c4a6e"] {
+        /* Force white text in answer boxes with blue backgrounds */
+        .main .element-container div[style*="background: linear-gradient(135deg, #1e3a8a"],
+        .main .element-container div[style*="background: linear-gradient(135deg, #0c4a6e"],
+        .main .element-container div[style*="background: linear-gradient(135deg, #1e40af"] {
             color: #ffffff !important;
         }
 
-        div[style*="background: linear-gradient(135deg, #1e3a8a"] *,
-        div[style*="background: linear-gradient(135deg, #0c4a6e"] * {
+        .main .element-container div[style*="background: linear-gradient(135deg, #1e3a8a"] *,
+        .main .element-container div[style*="background: linear-gradient(135deg, #0c4a6e"] *,
+        .main .element-container div[style*="background: linear-gradient(135deg, #1e40af"] * {
             color: #ffffff !important;
         }
+
         </style>
     """, unsafe_allow_html=True)
 
