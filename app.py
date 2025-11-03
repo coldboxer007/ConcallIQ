@@ -634,14 +634,14 @@ def run_app() -> None:
             font-weight: 600;
         }
 
-        /* Drag and drop instruction text - black - Multiple selectors for specificity */
+        /* Drag and drop instruction text - WHITE for consistency with blue background theme */
         [data-testid="stFileUploader"] p,
         [data-testid="stFileUploader"] small,
         [data-testid="stFileUploader"] div p,
         [data-testid="stFileUploader"] div small,
         [data-testid="stFileUploader"] section p,
         [data-testid="stFileUploader"] section small {
-            color: #000000 !important;
+            color: #ffffff !important;
             font-weight: 500 !important;
         }
 
@@ -650,12 +650,19 @@ def run_app() -> None:
             color: #ffffff !important;
         }
 
-        /* File uploader button text - black with higher specificity */
+        /* File uploader button text - WHITE with higher specificity */
         [data-testid="stFileUploader"] button,
         [data-testid="stFileUploader"] button span,
         [data-testid="stFileUploader"] button p {
-            color: #000000 !important;
-            background-color: transparent !important;
+            color: #ffffff !important;
+            background-color: rgba(255, 255, 255, 0.1) !important;
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            padding: 0.5rem 1rem !important;
+            border-radius: 6px !important;
+        }
+        
+        [data-testid="stFileUploader"] button:hover {
+            background-color: rgba(255, 255, 255, 0.2) !important;
         }
 
         /* Expander styling */
