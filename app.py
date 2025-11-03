@@ -626,20 +626,26 @@ def run_app() -> None:
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
 
+        /* File uploader label - white */
         [data-testid="stFileUploader"] label {
             color: #ffffff !important;
             font-weight: 600;
         }
 
+        /* Drag and drop instruction text - black */
         [data-testid="stFileUploader"] p,
         [data-testid="stFileUploader"] small {
+            color: #1e293b !important;
+        }
+
+        /* Uploaded file name - white */
+        [data-testid="stFileUploader"] span {
             color: #ffffff !important;
         }
 
-        /* Uploaded file name should be white */
-        [data-testid="stFileUploader"] span,
-        [data-testid="stFileUploader"] div {
-            color: #ffffff !important;
+        /* File uploader button text */
+        [data-testid="stFileUploader"] button {
+            color: #1e293b !important;
         }
 
         /* Expander styling */
@@ -785,15 +791,28 @@ def run_app() -> None:
         }
 
         /* Force white text in answer boxes with blue backgrounds */
-        .main .element-container div[style*="background: linear-gradient(135deg, #1e3a8a"],
-        .main .element-container div[style*="background: linear-gradient(135deg, #0c4a6e"],
-        .main .element-container div[style*="background: linear-gradient(135deg, #1e40af"] {
+        div[style*="background: linear-gradient(135deg, #1e3a8a"],
+        div[style*="background: linear-gradient(135deg, #0c4a6e"],
+        div[style*="background: linear-gradient(135deg, #1e40af"],
+        div[style*="background: linear-gradient(135deg, #075985"] {
             color: #ffffff !important;
         }
 
-        .main .element-container div[style*="background: linear-gradient(135deg, #1e3a8a"] *,
-        .main .element-container div[style*="background: linear-gradient(135deg, #0c4a6e"] *,
-        .main .element-container div[style*="background: linear-gradient(135deg, #1e40af"] * {
+        div[style*="background: linear-gradient(135deg, #1e3a8a"] *,
+        div[style*="background: linear-gradient(135deg, #0c4a6e"] *,
+        div[style*="background: linear-gradient(135deg, #1e40af"] *,
+        div[style*="background: linear-gradient(135deg, #075985"] * {
+            color: #ffffff !important;
+        }
+
+        div[style*="background: linear-gradient(135deg, #1e3a8a"] p,
+        div[style*="background: linear-gradient(135deg, #0c4a6e"] p,
+        div[style*="background: linear-gradient(135deg, #1e40af"] p,
+        div[style*="background: linear-gradient(135deg, #075985"] p,
+        div[style*="background: linear-gradient(135deg, #1e3a8a"] strong,
+        div[style*="background: linear-gradient(135deg, #0c4a6e"] strong,
+        div[style*="background: linear-gradient(135deg, #1e40af"] strong,
+        div[style*="background: linear-gradient(135deg, #075985"] strong {
             color: #ffffff !important;
         }
 
