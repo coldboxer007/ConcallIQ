@@ -818,6 +818,21 @@ def run_app() -> None:
             color: #ffffff !important;
         }
 
+        /* Force white text in blue gradient answer boxes - ALL ELEMENTS */
+        div[style*="background: linear-gradient(135deg, #1e3a8a"],
+        div[style*="background: linear-gradient(135deg, #0c4a6e"],
+        div[style*="background: linear-gradient(135deg, #1e40af"],
+        div[style*="background: linear-gradient(135deg, #075985"] {
+            color: #ffffff !important;
+        }
+
+        div[style*="background: linear-gradient(135deg, #1e3a8a"] *,
+        div[style*="background: linear-gradient(135deg, #0c4a6e"] *,
+        div[style*="background: linear-gradient(135deg, #1e40af"] *,
+        div[style*="background: linear-gradient(135deg, #075985"] * {
+            color: #ffffff !important;
+        }
+
         div[style*="background: linear-gradient(135deg, #1e3a8a"] p,
         div[style*="background: linear-gradient(135deg, #0c4a6e"] p,
         div[style*="background: linear-gradient(135deg, #1e40af"] p,
@@ -825,7 +840,11 @@ def run_app() -> None:
         div[style*="background: linear-gradient(135deg, #1e3a8a"] strong,
         div[style*="background: linear-gradient(135deg, #0c4a6e"] strong,
         div[style*="background: linear-gradient(135deg, #1e40af"] strong,
-        div[style*="background: linear-gradient(135deg, #075985"] strong {
+        div[style*="background: linear-gradient(135deg, #075985"] strong,
+        div[style*="background: linear-gradient(135deg, #1e3a8a"] div,
+        div[style*="background: linear-gradient(135deg, #0c4a6e"] div,
+        div[style*="background: linear-gradient(135deg, #1e40af"] div,
+        div[style*="background: linear-gradient(135deg, #075985"] div {
             color: #ffffff !important;
         }
 
@@ -1051,17 +1070,15 @@ def run_app() -> None:
 
             # Escape HTML and preserve newlines
             escaped_answer = html.escape(result['answer']).replace('\n', '<br>')
-            escaped_label = html.escape(strategy_label)
             st.markdown(f"""
                 <div style="background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
                             padding: 1.5rem;
                             border-radius: 10px;
                             border-left: 4px solid #60a5fa;
                             margin: 1rem 0;
-                            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                            color: #ffffff !important;">
-                    <div style="color: #ffffff !important; font-size: 1.1rem; font-weight: bold; margin-bottom: 0.8rem;">🤖 ConcallIQ — {escaped_label}</div>
-                    <div style="color: #ffffff !important; margin-top: 0.8rem; line-height: 1.8; font-size: 1rem;">{escaped_answer}</div>
+                            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                    <div style="font-size: 1.1rem; font-weight: bold; margin-bottom: 0.8rem;">🤖 ConcallIQ — {strategy_label}</div>
+                    <div style="margin-top: 0.8rem; line-height: 1.8; font-size: 1rem;">{escaped_answer}</div>
                 </div>
             """, unsafe_allow_html=True)
 
